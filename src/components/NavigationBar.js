@@ -14,6 +14,7 @@ const NavigationBar = (props) => {
   return (
     <>
       <div className="navigation-bar">
+        <h1>Blog</h1>
         <NavLink className="navigation-link" to="/">
           Home
         </NavLink>

@@ -7,6 +7,10 @@
     background-color: rgba(0,0,0, 0.8);
 } 
 
+.navigation-bar h1 {
+    color: white;
+}
+
 .navigation-bar .navigation-link {
     font-size: large;
     font-weight: bold;
