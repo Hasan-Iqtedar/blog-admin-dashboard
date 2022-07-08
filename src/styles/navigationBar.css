@@ -1,0 +1,27 @@
+.navigation-bar {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+    justify-content: space-evenly;
+    background-color: rgba(0,0,0, 0.8);
+} 
+
+.navigation-bar .navigation-link {
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    text-decoration-line: none;
+}
+
+.navigation-bar .navigation-link:hover, .navigation-bar .logout-btn:hover {
+    color: rgb(238, 237, 237);
+}
+
+.navigation-bar .logout-btn {
+    color: white;
+    border: none;
+    font-size: large;
+    font-weight: bold;
+    background-color: transparent;
+}
