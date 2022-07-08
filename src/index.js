@@ -5,6 +5,7 @@ import { AuthProvider } from './context/auth';
 import App from './App';
 import LoginPage from './components/LoginPage';
 import RequireAuth from './components/RequireAuth';
+import CreatePost from './components/CreatePost';
 
 import './styles/index.css';
 
@@ -16,13 +17,14 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route
-            path="/"
+            path="/*"
             element={
               <RequireAuth>
                 <App />
               </RequireAuth>
             }
-          />
+          >
+          </Route>
           <Route path="/login" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>

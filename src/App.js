@@ -1,24 +1,25 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import CreatePost from './components/CreatePost';
+import NavigationBar from './components/NavigationBar';
 
 const App = (props) => {
-  const navigate = useNavigate();
-
   useEffect(() => {
     console.log('App mounting\n_________________');
-    if (!localStorage.token) {
-      navigate('/login', { replace: true });
-    }
+
     return () => {
       console.log('App unmounting\n______________');
-      // localStorage.removeItem('token');
     };
   }, []);
 
   return (
     <>
-      <Dashboard />
+      <NavigationBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/create-post" element={<CreatePost />} />
+      </Routes>
     </>
   );
 };
