@@ -2,7 +2,7 @@
     height: 70px;
     display: flex;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     justify-content: space-evenly;
     background-color: rgba(0,0,0, 0.8);
 } 
