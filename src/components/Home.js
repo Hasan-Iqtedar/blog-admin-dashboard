@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from './Card';
 import { URL } from '../constants/utils';
@@ -6,10 +5,6 @@ import '../styles/home.css';
 
 const Home = ({ posts, updatePosts }) => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log('Home Mounting\n______________');
-  }, []);
 
   const togglePublish = (e) => {
     const postIndex = posts.findIndex((ele) => ele._id === e.target.value);
@@ -29,11 +24,9 @@ const Home = ({ posts, updatePosts }) => {
     })
       .then((res) => res.json())
       .then((resData) => {
-        console.log(resData);
         if (resData.post) {
           const updatedPosts = [...posts];
           updatedPosts[postIndex] = data;
-          console.log(updatedPosts);
 
           updatePosts(updatedPosts);
         }
@@ -60,7 +53,6 @@ const Home = ({ posts, updatePosts }) => {
     })
       .then((res) => res.json())
       .then((resData) => {
-        console.log(resData);
         if (resData.message) {
           const updatedPosts = posts.filter((ele) => ele._id !== id);
           updatePosts(updatedPosts);

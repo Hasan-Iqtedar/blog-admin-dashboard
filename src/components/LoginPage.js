@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/auth';
 import Card from './Card';
 import Header from './Header';
+import { URL } from '../constants/utils';
+
 import '../styles/loginPage.css';
-import { useAuth } from '../context/auth';
 
 const LoginPage = (props) => {
   const navigate = useNavigate();
@@ -18,19 +20,16 @@ const LoginPage = (props) => {
 
   const login = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5000/users/login', {
+    fetch(URL + '/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-
         if (data.user) {
           localStorage.setItem('token', data.user);
           localStorage.setItem('user', true);
-          console.log(localStorage);
           auth.login(true);
           navigate('/', { replace: true });
           setErr(false);

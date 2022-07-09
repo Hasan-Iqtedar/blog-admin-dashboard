@@ -11,21 +11,14 @@ const App = (props) => {
   const updatePosts = (posts) => setPosts(posts);
 
   useEffect(() => {
-    console.log('App mounting\n_________________');
-
     fetch(URL + '/posts', {
       method: 'GET',
       headers: { 'Content-Type': 'Application/json' },
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         updatePosts(data);
       });
-
-    return () => {
-      console.log('App unmounting\n______________');
-    };
   }, []);
 
   return (
