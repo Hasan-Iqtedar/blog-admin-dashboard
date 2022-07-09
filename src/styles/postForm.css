@@ -34,12 +34,21 @@
 }
 
 .container button {
+    min-width: 60px;
     width: 20%;
     height: 30px;
     font-size: medium;
     margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    background-color: rgb(145, 197, 214);
 }
 
+.container button:hover {
+    background-color: rgb(119, 183, 204);
+}
 
 .container input:focus, .container textarea:focus {
     outline: 1px solid lightgray;

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Card from './Card';
-import '../styles/createPost.css';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { URL } from '../constants/utils';
+import '../styles/postForm.css';
 
 const PostForm = (props) => {
   const navigate = useNavigate();
