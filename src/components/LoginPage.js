@@ -11,6 +11,7 @@ const LoginPage = (props) => {
 
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [err, setErr] = useState(false);
 
   const updateUserName = (e) => setUserName(e.target.value);
   const updatePassword = (e) => setPassword(e.target.value);
@@ -32,8 +33,10 @@ const LoginPage = (props) => {
           console.log(localStorage);
           auth.login(true);
           navigate('/', { replace: true });
+          setErr(false);
           return;
         } else {
+          setErr(true);
           auth.logout();
         }
       });
@@ -65,6 +68,7 @@ const LoginPage = (props) => {
           <button type="submit">Login</button>
         </form>
       </Card>
+      {err && <p style={{ color: 'red' }}>Incorrect username or password</p>}
     </div>
   );
 };
