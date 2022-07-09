@@ -5,29 +5,25 @@ import { AuthProvider } from './context/auth';
 import App from './App';
 import LoginPage from './components/LoginPage';
 import RequireAuth from './components/RequireAuth';
-import CreatePost from './components/CreatePost';
 
 import './styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <React.StrictMode>
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/*"
-            element={
-              <RequireAuth>
-                <App />
-              </RequireAuth>
-            }
-          >
-          </Route>
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
-  </React.StrictMode>
+  <AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/*"
+          element={
+            <RequireAuth>
+              <App />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </BrowserRouter>
+  </AuthProvider>
 );
