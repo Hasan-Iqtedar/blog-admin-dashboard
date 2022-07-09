@@ -46,10 +46,27 @@ const Home = ({ posts, updatePosts }) => {
     );
     const post = posts[postIndex];
 
-    navigate('/update-post/' + post._id, { state: {post, postIndex},});
+    navigate('/update-post/' + post._id, { state: { post, postIndex } });
   };
 
-  const deletePost = () => {};
+  const deletePost = (e) => {
+    const id = e.target.value;
+    fetch(URL + `/posts/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'Application/json',
+        Authorization: 'bearer ' + localStorage.token,
+      },
+    })
+      .then((res) => res.json())
+      .then((resData) => {
+        console.log(resData);
+        if (resData.message) {
+          const updatedPosts = posts.filter((ele) => ele._id !== id);
+          updatePosts(updatedPosts);
+        }
+      });
+  };
 
   return (
     <>
