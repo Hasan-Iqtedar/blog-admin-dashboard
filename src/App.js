@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-import CreatePost from './components/CreatePost';
+import PostForm from './components/PostForm';
 import NavigationBar from './components/NavigationBar';
 import { URL } from './constants/utils';
 
@@ -39,13 +39,13 @@ const App = (props) => {
         <Route
           path="/create-post"
           element={
-            <CreatePost posts={posts} updatePosts={updatePosts} method="POST" />
+            <PostForm posts={posts} updatePosts={updatePosts} method="POST" />
           }
         />
         <Route
           path="/update-post/:postId"
           element={
-            <CreatePost posts={posts} updatePosts={updatePosts} method="PUT" />
+            <PostForm posts={posts} updatePosts={updatePosts} method="PUT" />
           }
         />
       </Routes>
