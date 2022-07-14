@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <AuthProvider>
-    <BrowserRouter>
+    <BrowserRouter basename='/blog-admin-dashboard' >
       <Routes>
         <Route
           path="/*"
