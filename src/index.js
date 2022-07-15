@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './context/auth';
 import App from './App';
 import LoginPage from './components/LoginPage';
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <AuthProvider>
-    <BrowserRouter basename='/blog-admin-dashboard' >
+    <HashRouter>
       <Routes>
         <Route
           path="/*"
@@ -24,6 +24,6 @@ root.render(
         ></Route>
         <Route path="/login" element={<LoginPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </AuthProvider>
 );
